@@ -13,6 +13,71 @@ Exclamation symbols (:exclamation:) note something of importance e.g. breaking c
 ### Fixed
 ### Security
 
+## [0.83.0] - 2024-05-25
+### Notes
+- [:ledger: View file changes][0.83.0] ∙ [:page_with_curl: DB migration script][0.83.0-sql-migration]
+- [:exclamation:][0.83.0-bc-minimum-php-81] PHP 8.1+ required!
+- Last version with database support built in to the core.
+### Added
+- Bot API 7.0 (@noplanman, @TiiFuchs) (#1459)
+- Bot API 7.1 (@noplanman) (#1465)
+### Changed
+- [:exclamation:][0.83.0-bc-user-to-users] Various fields have been pluralised from "user" to "users".
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [0.82.0] - 2023-10-26
+### Notes
+- [:ledger: View file changes][0.82.0] ∙ [:page_with_curl: DB migration script][0.82.0-sql-migration]
+- Really the last version that supports PHP 7! Only PHP 8 after this one.
+### Added
+- Bot API 6.8, 6.9 (@noplanman) (#1418, #1427)
+- Test against PHP 8.3 (@sergiy-petrov) (#1421)
+### Fixed
+- Missing `thumbnail_url` renaming.
+- Fix broken exception handling (@mlocati) (#1425)
+
+## [0.81.0] - 2023-05-27
+### Notes
+- [:ledger: View file changes][0.81.0] ∙ [:page_with_curl: DB migration script][0.81.0-sql-migration]
+- Last version that supports PHP 7.
+### Added
+- Support dynamic Entity properties for newer PHP versions (@alesinicio, @TiiFuchs) (#1390)
+- Bot API 6.4, 6.5, 6.6, 6.7 (@noplanman) (#1389)
+### Removed
+- Keyboard validations (@noplanman) (#1395)
+### Fixed
+- Fixed a bug where new incoming updates are not correctly passed to the Command object after the first time when getUpdates is used. (@uspilot) (#1384)
+
+## [0.80.0] - 2022-11-09
+### Notes
+- [:ledger: View file changes][0.80.0] ∙ [:page_with_curl: DB migration script][0.80.0-sql-migration]
+### Added
+- Bot API 6.3 (@TiiFuchs) (#1371)
+### Changed
+- [:exclamation:][0.80.0-bc-commands-with-underscores] Commands can now contain underscores (`FooBarCommand` is handled by `/foo_bar`). (@mlocati) (#1365)
+
+## [0.79.0] - 2022-09-04
+### Notes
+- [:ledger: View file changes][0.79.0]
+### Added
+- Bot API 6.2 (@OxMohsen) (#1350)
+### Removed
+- `VoiceChatX` entities, use `VideoChatX` entities instead.
+- `all_members_are_administrators` property from `Message` entity. Database column still exists, but may be removed in the future.
+- `Request::getChatMembersCount()`, use `Request::getChatMemberCount()` instead.
+- `Request::kickChatMember()`, use `Request::banChatMember()` instead.
+
+## [0.78.0] - 2022-07-03
+### Notes
+- [:ledger: View file changes][0.78.0] ∙ [:page_with_curl: DB migration script][0.78.0-sql-migration]
+- 64 bit PHP install required to handle files larger than 2GB!
+### Added
+- Bot API 6.1 (@jyxjjj, @OxMohsen, @noplanman) (#1333, #1338, #1339)
+- New Update field helpers for Command class.
+
 ## [0.77.1] - 2022-04-24
 ### Notes
 - [:ledger: View file changes][0.77.1]
@@ -584,6 +649,14 @@ Exclamation symbols (:exclamation:) note something of importance e.g. breaking c
 ### Deprecated
 - Move `hideKeyboard` to `removeKeyboard`.
 
+[0.83.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.82.0-0.83.0.sql
+[0.83.0-bc-minimum-php-81]: https://github.com/php-telegram-bot/core/wiki/Breaking-backwards-compatibility#minimum-php-81
+[0.83.0-bc-user-to-users]: https://github.com/php-telegram-bot/core/wiki/Breaking-backwards-compatibility#user-to-users
+[0.82.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.81.0-0.82.0.sql
+[0.81.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.80.0-0.81.0.sql
+[0.80.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.79.0-0.80.0.sql
+[0.80.0-bc-commands-with-underscores]: https://github.com/php-telegram-bot/core/wiki/Breaking-backwards-compatibility#commands-with-underscores
+[0.78.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.77.1-0.78.0.sql
 [0.77.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.76.1-0.77.0.sql
 [0.75.0-sql-migration]: https://github.com/php-telegram-bot/core/tree/master/utils/db-schema-update/0.74.0-0.75.0.sql
 [0.75.0-bc-removed-chatactions]: https://github.com/php-telegram-bot/core/wiki/Breaking-backwards-compatibility#removed-deprecated-chatactions
@@ -622,6 +695,12 @@ Exclamation symbols (:exclamation:) note something of importance e.g. breaking c
 [Tidelift]: https://tidelift.com/subscription/pkg/packagist-longman-telegram-bot?utm_source=packagist-longman-telegram-bot&utm_medium=referral&utm_campaign=changelog
 
 [Unreleased]: https://github.com/php-telegram-bot/core/compare/master...develop
+[0.83.0]: https://github.com/php-telegram-bot/core/compare/0.82.0...0.83.0
+[0.82.0]: https://github.com/php-telegram-bot/core/compare/0.81.0...0.82.0
+[0.81.0]: https://github.com/php-telegram-bot/core/compare/0.80.0...0.81.0
+[0.80.0]: https://github.com/php-telegram-bot/core/compare/0.79.0...0.80.0
+[0.79.0]: https://github.com/php-telegram-bot/core/compare/0.78.0...0.79.0
+[0.78.0]: https://github.com/php-telegram-bot/core/compare/0.77.1...0.78.0
 [0.77.1]: https://github.com/php-telegram-bot/core/compare/0.77.0...0.77.1
 [0.77.0]: https://github.com/php-telegram-bot/core/compare/0.76.1...0.77.0
 [0.76.1]: https://github.com/php-telegram-bot/core/compare/0.76.0...0.76.1

@@ -12,15 +12,13 @@
 namespace Longman\TelegramBot\Entities;
 
 /**
- * Class VoiceChatStarted
+ * This object represents a service message about a user boosting a chat.
  *
- * Represents a service message about a voice chat started in the chat
+ * @link https://core.telegram.org/bots/api#chatboostadded
  *
- * @deprecated See VideoChatStarted instead
- *
- * @link https://core.telegram.org/bots/api#voicechatstarted
+ * @method int getBoostCount() Number of boosts added by the user
  */
-class VoiceChatStarted extends Entity
+class ChatBoostAdded extends Entity
 {
 
 }

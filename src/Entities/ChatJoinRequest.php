@@ -11,13 +11,13 @@ namespace Longman\TelegramBot\Entities;
  *
  * @method Chat           getChat()       Chat to which the request was sent
  * @method User           getFrom()       User that sent the join request
+ * @method int            getUserChatId() Identifier of a private chat with the user who sent the join request.
  * @method int            getDate()       Date the request was sent in Unix time
  * @method string         getBio()        Optional. Bio of the user.
  * @method ChatInviteLink getInviteLink() Optional. Chat invite link that was used by the user to send the join request
  */
 class ChatJoinRequest extends Entity
 {
-
     protected function subEntities(): array
     {
         return [
@@ -26,5 +26,4 @@ class ChatJoinRequest extends Entity
             'invite_link' => ChatInviteLink::class,
         ];
     }
-
 }

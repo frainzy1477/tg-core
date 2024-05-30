@@ -12,17 +12,14 @@
 namespace Longman\TelegramBot\Entities;
 
 /**
- * Class VoiceChatParticipantsInvited
+ * This object represents a boost added to a chat or changed.
  *
- * Represents a service message about new members invited to a voice chat
+ * @link https://core.telegram.org/bots/api#chatboostupdated
  *
- * @deprecated See VideoChatParticipantsInvited instead
- *
- * @link https://core.telegram.org/bots/api#voicechatparticipantsinvited
- *
- * @method User[]      getUsers()       Optional. New members that were invited to the voice chat
+ * @method Chat      getChat()  Chat which was boosted
+ * @method ChatBoost getBoost() Information about the chat boost
  */
-class VoiceChatParticipantsInvited extends Entity
+class ChatBoostUpdated extends Entity
 {
     /**
      * {@inheritdoc}
@@ -30,7 +27,8 @@ class VoiceChatParticipantsInvited extends Entity
     protected function subEntities(): array
     {
         return [
-            'users' => [User::class],
+            'chat'       => Chat::class,
+            'chat_boost' => ChatBoost::class,
         ];
     }
 }
